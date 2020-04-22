@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">BankCollection</string>
+    <string name="title_home">My Bank</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_credit_card">Card</string>
+</resources>

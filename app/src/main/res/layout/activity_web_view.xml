@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        app:elevation="0dp">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/actionbar"
+            style="@style/ActionBar"
+            app:contentInsetEnd="0dp"
+            app:contentInsetStart="0dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <FrameLayout
+                    android:id="@+id/fl_back"
+                    android:layout_width="36dp"
+                    android:layout_height="match_parent"
+                    android:onClick="onBackOrForwardClick">
+
+                    <ImageView
+                        android:id="@+id/iv_back"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical|right"
+                        android:background="#00000000"
+                        android:enabled="false"
+                        android:src="@drawable/web_back_disable" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/fl_forward"
+                    android:layout_width="36dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="20dp"
+                    android:layout_toRightOf="@+id/fl_back"
+                    android:onClick="onBackOrForwardClick">
+
+                    <ImageView
+                        android:id="@+id/iv_web_forward"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center_vertical"
+                        android:background="#00000000"
+                        android:enabled="false"
+                        android:src="@drawable/web_forward_disable" />
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/actionbar_title_no_arrow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_centerHorizontal="true"
+                    android:ellipsize="marquee"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:textColor="#333333"
+                    android:textSize="17sp"
+                    android:layout_toRightOf="@+id/fl_forward"
+                    android:layout_toLeftOf="@+id/fl_jump"/>
+
+                <FrameLayout
+                    android:id="@+id/fl_close"
+                    android:layout_width="36dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:enabled="false"
+                        android:src="@drawable/web_close" />
+                </FrameLayout>
+
+
+                <FrameLayout
+                    android:id="@+id/fl_refresh"
+                    android:layout_width="36dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="21dp"
+                    android:layout_toLeftOf="@+id/fl_close">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical|right"
+                        android:src="@drawable/web_refresh" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/fl_jump"
+                    android:layout_width="36dp"
+                    android:layout_height="match_parent"
+                    android:layout_toLeftOf="@+id/fl_refresh">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical|right"
+                        android:src="@android:drawable/ic_menu_set_as" />
+                </FrameLayout>
+
+            </RelativeLayout>
+        </androidx.appcompat.widget.Toolbar>
+
+        <View style="@style/Border" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#FFFF" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <WebView
+                android:id="@+id/wv_fragment"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:scrollbars="vertical" />
+
+        </LinearLayout>
+
+
+        <!--最上方的loading-->
+        <ProgressBar
+            android:id="@+id/pb_hori_loading"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="-2dp" />
+
+    </RelativeLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
